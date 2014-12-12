@@ -1,0 +1,4 @@
+﻿#tabBar{ width:950px; float:left; margin-left:70px; margin-top:25px;list-style-type:none}
+#tabBar li{ float:left; margin-right:60px;}
+#tabBar li a.active{ border-bottom:3px solid #fff;color:Red;}
+#tabBar li a:hover{ border-bottom:3px solid #fff;color:Red;}

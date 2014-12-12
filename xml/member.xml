@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <group recstatus="1">
+    <sourcedid>
+      <source>Shengxue</source>
+      <id>79D093AA50B74278BB06F2C706769DB2</id>
+    </sourcedid>
+    <grouptype>
+      <scheme>FronterStructure1.0</scheme>
+      <!--4 is room and 1 is corridor.-->
+      <typevalue level="4"/>
+    </grouptype>
+    <description>
+      <short>品德</short>
+    </description>
+    <relationship relation="1">
+      <sourcedid>
+        <source>Shengxue</source>
+        <id>75F052B273114D889C7D7261140D4470</id>
+      </sourcedid>
+    </relationship>
+  </group>
+  <membership recstatus="1">
+    <sourcedid>
+      <source>Shengxue</source>
+      <id>79D093AA50B74278BB06F2C706769DB2</id>
+    </sourcedid>
+    <member>
+      <sourcedid>
+        <source>Shengxue</source>
+        <id>C96D5991B7104750B97023812F614362</id>
+      </sourcedid>
+      <idtype>2</idtype> // 以前是 1 ，表示个人，现在改成2 表示是群组
+      <role roletype="02" recstatus="1">
+        <status>1</status>
+        <extension>
+          <memberof type="1"/>
+          <groupaccess contactAccess="100"/>
+        </extension>
+      </role>
+    </member>
+  </membership>
+  <membership recstatus="1">
+    <sourcedid>
+      <source>Shengxue</source>
+      <id>79D093AA50B74278BB06F2C706769DB2</id>
+    </sourcedid>
+    <member>
+      <sourcedid>
+        <source>Shengxue</source>
+        <id>C5EE00C8277846C180C793A57CF56343</id> // id 以前是老师ID，现在改成教师所在班级群组的ID
+      </sourcedid>
+      <idtype>2</idtype>
+      <role roletype="03" recstatus="1">
+        <status>1</status>
+        <extension>
+          <memberof type="1"/>
+          <groupaccess contactAccess="100" roomAccess="100"/>
+        </extension>
+      </role>
+    </member>
+  </membership>
+</root>
