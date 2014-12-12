@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>    
+    <link href="Css/pcp.jquery.mobile.css" rel="stylesheet" type="text/css" />
+    <link href="Css/jqm-datebox-1.4.0.css" rel="stylesheet" type="text/css" />
+    <script src="Js/jquery-2.0.3.js" type="text/javascript"></script> 
+    <script src="Js/jquery.mobile.js" type="text/javascript"></script>
+    <script src="Js/pcp.jqm-datebox.core.js" type="text/javascript"></script>
+    <script src="Js/jqm-datebox.mode.calbox.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $("#Text2").removeClass("ui-input-text");
+            $("#Text2").parent().parent().removeClass("ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c");
+        });
+    </script>
+    <style type="text/css">
+        #Text2Div span.ui-icon { background-image:url(image/datebox.png);width:54px;height:54px;}
+        #Text2Div a.ui-btn-icon-notext {width:54px;height:54px;}
+        #Test2 {border-collapse: separate;border-spacing: 2px;border-color: gray;}
+    </style>
+</head>
+<body>
+    <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-d">
+        <input name="mode1" id="mode1" type="text" data-role="datebox" data-options="{&quot;mode&quot;:&quot;calbox&quot;, &quot;useNewStyle&quot;:true}" class="ui-input-text ui-body-d ui-corner-all ui-icon-datebox" readonly="readonly">
+    </div>
+
+    <div class="ui-input-text" style="width:300px;">
+        <input name="mode1" id="Text1" type="text" data-role="datebox" data-options="{&quot;mode&quot;:&quot;calbox&quot;, &quot;useNewStyle&quot;:true}" class="ui-input-text ui-body-d ui-corner-all ui-icon-datebox" readonly="readonly">
+    </div>
+
+     <div class="ui-input-text" style="width:300px;" id="Text2Div">
+        <input name="mode1" id="Text2" style="width:160px;height:30px;line-height: 30px;font-size: 22px;padding-left:2px;margin-right:10px;" type="text" data-role="datebox" data-options='{"mode":"calbox"}'>
+    </div>
+</body>
+</html>

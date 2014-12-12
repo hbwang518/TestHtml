@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Js/jquery-2.0.3.js" type="text/javascript"></script>
+    <script type = "text/javascript">
+
+        function changeHashOnLoad() {
+
+            // It works without the History API, but will clutter up the history
+            var history_api = typeof history.pushState !== 'undefined';
+
+            // The previous page asks that it not be returned to
+            if (location.hash == '#no-back') {
+                // Push "#no-back" onto the history, making it the most recent "page"
+                if (history_api) history.pushState(null, '', '#stay')
+                else location.hash = '#stay'
+
+                // When the back button is pressed, it will harmlessly change the url
+                // hash from "#stay" to "#no-back", which triggers this function
+                window.onhashchange = function () {
+
+                    // User tried to go back; warn user, rinse and repeat            
+                    if (location.hash == '#no-back' || location.hash == '') {
+                        if (history_api) history.pushState(null, '', '#stay')
+                        else location.hash = '#stay'
+                    }
+
+                }
+            } else if (location.hash == '#stay') {
+                if (history_api) history.pushState(null, '', '#no-back')
+                else location.hash = '#no-back'
+                window.onhashchange = function () {
+
+                    // User tried to go back; warn user, rinse and repeat            
+                    if (location.hash == '#no-back' || location.hash == '') {
+                        if (history_api) history.pushState(null, '', '#stay')
+                        else location.hash = '#stay'
+                    }
+
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="changeHashOnLoad()">
+html 2
+
+<a href="HtmlPage3.htm#no-back">You can't go back from the next page</a>
+
+</body>
+</html>

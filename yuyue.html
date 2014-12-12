@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Js/jquery-2.0.3.js"></script>
+    <script>
+        //var yuyue;
+        //if (!yuyue) yuyue = {};
+        var yuyue = {
+            first: function () {
+                alert("aaa");
+            },
+            second: function () {
+                alert("bbb");
+            }
+        }
+
+
+        $(function () {
+            yuyue.first();
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>aaa</td>
+            <td class="modify">bbb</td>
+        </tr>
+    </table>
+</body>
+</html>

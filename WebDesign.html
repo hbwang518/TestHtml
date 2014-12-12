@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Js/jquery-2.0.3.js"></script>
+    <script>
+        $(function () {
+            //var str = 'aaaa {|-<span leipiplugins="province" title="省市" name="leipiNewField" guid="465610a4-3de6-40e7-b7c1-d4d6a96c1a94"> <span>-|} bbb';
+            //str = str.replace(new RegExp("{\\|-", "g"), "").replace(new RegExp("-\\|}", "g"), "");
+            //alert(str);
+
+            //var fieldStr = "aaa,bbb;ccc,ddd";
+            //var fieldArray = fieldStr.split(";");
+
+            //fieldArray.each(function () {
+
+            //});
+
+            //var str = '<p><input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="text" value="" title="abc" guid="61570cc1-ecea-455f-ba06-b57411b7c48a" name="leipiNewField" type="text"/><input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="text" value="" title="aaa" guid="97ab9657-eb01-4bef-917c-e4960a5f4341" name="leipiNewField" type="text"/></p>';
+            //var htmlObj = $(str);
+            //var abc = "abc"
+           
+            //var obj = $("#newTemplate").find("*[name=]");
+            ////var elementObj = htmlObj.find("*[name=leipiNewField]").filter("*[title=" + abc + "]");
+            //var elementObj = htmlObj.find("*[name=leipiNewField]").filter("*[title="+abc+"]");;
+            //alert(elementObj.length);
+            //alert(elementObj.getAttribute("leipiplugins"));
+            //alert(elementObj.attr("leipiplugins"));
+
+            //var htmlObj = $(str);
+            //var obj = htmlObj.find("*[name=aaa]").filter("*[title=" + controlName + "]");
+            //var obj = $('body').find("*[name=leipiNewField]").not(":checkbox");
+            //obj.each(function () {
+            //    alert($(this).attr("guid"));
+            //});
+            var str = '<p><input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="姓名" title="姓名" guid="e2292e71-a740-4800-87bf-2f7a7582919b" name="leipiNewField" type="text"/><input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="电话" title="电话" guid="de11fefb-73f3-4d21-a1f9-96230a9b9107" name="leipiNewField" type="text"/><input orgtype="email" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="邮箱" title="邮箱" guid="1839bc07-0df5-4583-ae11-8c626879b351" name="leipiNewField" type="text"/><br/></p><p><span leipiplugins="province" title="省市" name="leipiNewField" guid="2789d86f-e5cd-40e1-8ff0-08d06720a4bf"><select name="provinceleipiNewField"><option>province</option></select>&nbsp;<select name="cityleipiNewField"><option>city</option></select></span></p><p><input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orgrequire="1" leipiplugins="text" value="" title="aaa" guid="f4159e86-805c-4202-aed7-6abe1b507338" name="leipiNewField" type="text"/><br/></p><p><textarea title="textarea" guid="44305dd4-d826-49b0-8535-37dba84c0053" name="leipiNewField" leipiplugins="textarea" value="" orgrich="0" orgfontsize="" orgwidth="300" orgheight="80" orgrequire="1" style="width:300px;height:80px;"></textarea><br/></p><p><span leipiplugins="select"><select orgrequire="0" orgwidth="150" style="width: 150px;" size="1" leipiplugins="select" guid="898aa99e-1588-427b-863a-96f45b278070" title="drop" name="leipiNewField"><option value="1">1</option><option selected="selected" value="2">2</option><option value="3">3</option></select>&nbsp;&nbsp;</span></p><p><span leipiplugins="radios" title="radio" name="leipiNewField" guid="4ef71ffd-13e0-4948-97e1-024e35873900" orgrequire="1"><input name="leipiNewField4ef71ffd-13e0-4948-97e1-024e35873900" value="1" type="radio"/>1&nbsp;<input name="leipiNewField4ef71ffd-13e0-4948-97e1-024e35873900" value="3" type="radio"/>3&nbsp;<input name="leipiNewField4ef71ffd-13e0-4948-97e1-024e35873900" value="2" checked="checked" type="radio"/>2&nbsp;</span></p><p><span leipiplugins="checkboxs" title="checkbox" name="leipiNewField" guid="da1ba1ae-655b-443d-9030-775a75d76551" orgrequire="0"><input name="leipiNewField" value="2" type="checkbox"/>2&nbsp;<input name="leipiNewField" value="3" checked="checked" type="checkbox"/>3&nbsp;</span></p>';
+            $("#newTemplate").html(str);
+            var obj = $("#newTemplate").find("select[name=leipiNewField]");
+            alert(obj.length);
+           
+        });
+        function check() {
+            var item = $(":radio:checked[name=leipiNewField1ce79952-fa55-4209-918c-ccebee03334c]");
+            if (item.length > 0) {
+                alert(item.val());
+            }
+            alert("checkbox");
+            item = $("span[title=checkName] :checkbox:checked");
+            item.each(function () {
+                alert($(this).val());
+            });
+            alert("select");
+            item = $("select[title=dropname] option:selected");
+            item.each(function () {
+                alert($(this).val());
+            });
+
+            alert("multiselect");
+            item = $("select[title=multiselect] option:selected");
+            item.each(function () {
+                alert($(this).val());
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="newTemplate">
+
+    </div>
+    <div>     
+  <p>
+    <input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="姓名" title="姓名" guid="026cc681-2259-4b2e-bafd-17a0bcd9b216" name="leipiNewField" type="text"/>
+    <input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="电话" title="电话" guid="820de178-37e8-4f4e-8fa7-5d055c5f7f57" name="leipiNewField" type="text"/>
+    <input orgtype="email" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="邮箱" title="邮箱" guid="632c3e4b-aba7-46ae-ac12-d9280fa36599" name="leipiNewField" type="text"/>
+    {|-<span leipiplugins="province" title="省市" name="leipiNewField" guid="465610a4-3de6-40e7-b7c1-d4d6a96c1a94">
+        <select name="systemleipiNewField">
+            <option>province</option></select>&nbsp;
+        <select name="systemleipiNewField">
+            <option>city</option>
+        </select></span>-|}
+</p>
+<p>
+    <input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="text" value="" title="textname" guid="10d890c4-57a5-41a9-9223-6ef3edbb584d" name="leipiNewField" type="text"/><br/>
+</p>
+<p>
+    <textarea title="textareaname" guid="62294a5b-751c-4205-a45e-ba9c30b92b45" name="leipiNewField" leipiplugins="textarea" value="" orgrich="0" orgfontsize="" orgwidth="300" orgheight="80" style="width:300px;height:80px;"></textarea><br/>
+</p>
+<p>
+    {|-<span leipiplugins="select">
+        <select orgwidth="150" style="width: 150px;" size="1" leipiplugins="select" guid="e0bfade7-92e7-40f4-8a76-5504576fbc07" title="dropname" name="leipiNewField">
+            <option value="o1">o1</option>
+            <option value="02">02</option>
+            <option value="o3">o3</option></select>&nbsp;&nbsp;</span>-|}
+</p>
+<p>
+    {|-<span leipiplugins="radios" title="radioName" name="leipiNewField" guid="1ce79952-fa55-4209-918c-ccebee03334c">
+    <input name="leipiNewField1ce79952-fa55-4209-918c-ccebee03334c" value="r1" type="radio"/>r1&nbsp;
+    <input name="leipiNewField1ce79952-fa55-4209-918c-ccebee03334c" value="r2" checked="checked" type="radio"/>r2&nbsp;
+    <input name="leipiNewField1ce79952-fa55-4209-918c-ccebee03334c" value="r3" type="radio"/>r3&nbsp;</span>-|}
+</p>
+<p>
+    {|-<span leipiplugins="checkboxs" title="checkName" name="leipiNewField" guid="76435c95-9400-4982-af64-2ddfad70be42">
+    <input name="leipiNewField" value="c1" type="checkbox"/>c1&nbsp;
+    <input name="leipiNewField" value="c2" type="checkbox"/>c2&nbsp;</span>-|}
+</p>
+
+        <p>
+    {|-<span leipiplugins="select"><select orgwidth="150" style="width: 150px;" size="3" leipiplugins="select" guid="4947d0b0-4f6e-49a8-b154-29071d6df4e9" title="multiselect" name="leipiNewField"><option value="1">
+        1
+    </option>
+    <option selected="selected" value="5">
+        5
+    </option>
+    <option value="3">
+        3
+    </option>
+    <option value="4">
+        4
+    </option>
+    <option value="2">
+        2
+    </option></select>&nbsp;&nbsp;</span>-|}
+</p>
+
+    </div>
+    <input type="button" onclick="check();" value="test" />
+</body>
+</html>
+
+
+<!--       <p>
+    <input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="姓名" title="姓名" guid="026cc681-2259-4b2e-bafd-17a0bcd9b216" name="leipiNewField" type="text"/>
+    <input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="电话" title="电话" guid="820de178-37e8-4f4e-8fa7-5d055c5f7f57" name="leipiNewField" type="text"/>
+    <input orgtype="email" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="system" value="邮箱" title="邮箱" guid="632c3e4b-aba7-46ae-ac12-d9280fa36599" name="leipiNewField" type="text"/>
+    {|-<span leipiplugins="province" title="省市" name="leipiNewField" guid="465610a4-3de6-40e7-b7c1-d4d6a96c1a94">
+        <select name="leipiNewField">
+            <option>province</option></select>&nbsp;
+        <select name="leipiNewField">
+            <option>city</option>
+        </select></span>-|}
+</p>
+<p>
+    <input orgtype="text" orgwidth="150" orgalign="left" style="text-align: left; width: 150px;" orghide="0" leipiplugins="text" value="" title="textname" guid="10d890c4-57a5-41a9-9223-6ef3edbb584d" name="leipiNewField" type="text"/><br/>
+</p>
+<p>
+    <textarea title="textareaname" guid="62294a5b-751c-4205-a45e-ba9c30b92b45" name="leipiNewField" leipiplugins="textarea" value="" orgrich="0" orgfontsize="" orgwidth="300" orgheight="80" style="width:300px;height:80px;"></textarea><br/>
+</p>
+<p>
+    {|-<span leipiplugins="select">
+        <select orgwidth="150" style="width: 150px;" size="1" leipiplugins="select" guid="e0bfade7-92e7-40f4-8a76-5504576fbc07" title="dropname" name="leipiNewField">
+            <option value="o1">o1</option>
+            <option value="02">02</option>
+            <option value="o3">o3</option></select>&nbsp;&nbsp;</span>-|}
+</p>
+<p>
+    {|-<span leipiplugins="radios" title="radioName" name="leipiNewField" guid="1ce79952-fa55-4209-918c-ccebee03334c">
+    <input name="leipiNewField" value="r1" type="radio"/>r1&nbsp;
+    <input name="leipiNewField" value="r2" checked="checked" type="radio"/>r2&nbsp;
+    <input name="leipiNewField" value="r3" type="radio"/>r3&nbsp;</span>-|}
+</p>
+<p>
+    {|-<span leipiplugins="checkboxs" title="checkName" name="leipiNewField" guid="76435c95-9400-4982-af64-2ddfad70be42">
+    <input name="leipiNewField" value="c1" type="checkbox"/>c1&nbsp;
+    <input name="leipiNewField" value="c2" type="checkbox"/>c2&nbsp;</span>-|}
+</p>-->
+
+              

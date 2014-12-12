@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Example of MathML embedded in an XHTML file</title>
+    <meta name="description" content="Example of MathML embedded in an XHTML file"/>
+      <script src="Js/jquery-1.6.4.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        var mathml = "<math>  <mrow>    <mi>x</mi>    <mo>=</mo>    <mfrac>      <mrow>        <mo form='prefix'>&#x2212;</mo><mi>b</mi>        <mo>&#x00B1;</mo>        <msqrt>          <msup>            <mi>b</mi>            <mn>2</mn>          </msup>          <mo>&#x2212;</mo>          <mn>4</mn>          <mo>&#x2062;</mo>          <mi>a</mi>          <mo>&#x2062;</mo>          <mi>c</mi>        </msqrt>      </mrow>      <mrow>        <mn>2</mn>        <mo>&#x2062;</mo>        <mi>a</mi>      </mrow>    </mfrac>  </mrow>  </math>";
+        //alert(mathml);
+        $(function () {
+            $("#textareaCon").html(mathml);
+            $("#textareaCon").html("&gt;");
+        });
+        
+    </script>
+  </head>
+  <body  xmlns:mml="http://www.w3.org/1998/Math/MathML">
+    <textarea rows="10" cols="50" id="textareaCon"></textarea>
+    <I>ax</I><SUP>2</SUP>+<I>by</I><SUP>2</SUP>+<I>c</I>
+    <h1>Example of MathML embedded in an XHTML file</h1>
+    <p>
+      The area of a circle is 
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>&#x03C0;<!-- π --></mi>
+        <mo>&#x2062;<!-- &InvisibleTimes; --></mo>
+        <msup>
+          <mi>r</mi>
+          <mn>2</mn>
+        </msup>
+      </math>.
+
+
+    </p>
+
+    <p>
+        test <math>
+            <apply>
+                <plus/>
+                <apply>
+                    <times/>
+                    <ci>a</ci>
+                    <apply>
+                        <power/>
+                        <ci>x</ci>
+                        <cn>2</cn>
+                    </apply>
+                </apply>
+                <apply>
+                    <times/>
+                    <ci>b</ci>
+                    <ci>x</ci>
+                </apply>
+                <ci>c</ci>
+            </apply>
+        </math>
+    </p>
+
+    <p>
+        <math mode="display" xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mfrac>
+      <mrow>
+        <mo form="prefix">&#x2212;<!-- − --></mo>
+        <mi>b</mi>
+        <mo>&#x00B1;<!-- &PlusMinus; --></mo>
+        <msqrt>
+          <msup>
+            <mi>b</mi>
+            <mn>2</mn>
+          </msup>
+          <mo>&#x2212;<!-- − --></mo>
+          <mn>4</mn>
+          <mo>&#x2062;<!-- &InvisibleTimes; --></mo>
+          <mi>a</mi>
+          <mo>&#x2062;<!-- &InvisibleTimes; --></mo>
+          <mi>c</mi>
+        </msqrt>
+      </mrow>
+      <mrow>
+        <mn>2</mn>
+        <mo>&#x2062;<!-- &InvisibleTimes; --></mo>
+        <mi>a</mi>
+      </mrow>
+    </mfrac>
+  </mrow>  
+</math>
+    </p>
+
+    
+    test replace
+     <p>
+         <math xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+             <mi>x</mi>
+             <mo>=</mo>
+             <mfrac>
+                 <mrow>
+                     <mo>-</mo>
+                     <mi>b</mi>
+                     <mo>±</mo>
+                     <msqrt>
+                         <msup>
+                             <mrow>
+                                 <mi>b</mi>
+                             </mrow>
+                             <mrow>
+                                 <mn>2</mn>
+                             </mrow>
+                         </msup>
+                         <mo>-</mo>
+                         <mn>4</mn>
+                         <mi>a</mi>
+                         <mi>c</mi>
+                     </msqrt>
+                 </mrow>
+                 <mrow>
+                     <mn>2</mn>
+                     <mi>a</mi>
+                 </mrow>
+             </mfrac>
+         </math>
+    </p>
+
+    <p>
+        <math xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><mtext>r</mtext><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mtext>a</mtext><msup><mrow><mi>t</mi></mrow><mrow><mn>2</mn></mrow></msup><mo>+</mo><msub><mrow><mtext>v</mtext></mrow><mrow><mtext>o</mtext></mrow></msub><mi>t</mi><mo>+</mo><msub><mrow><mtext>r</mtext></mrow><mrow><mtext>0</mtext></mrow></msub></math>
+    </p>
+    <p>
+        <math>
+        <mrow>
+                <mtext selected="true">x=12*45*</mtext>
+                <mfrac>
+                        <mtext>128*x</mtext>
+                        <mtext>554*y</mtext>
+                </mfrac>
+        </mrow>
+</math>
+    </p>
+    mmm prefix
+    <p xmlns:mml="http://www.w3.org/1998/Math/MathML">
+        
+        
+        </p>
+  </body>
+</html>

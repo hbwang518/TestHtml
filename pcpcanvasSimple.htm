@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Js/jquery-2.0.3.js" type="text/javascript"></script>
+    <script src="Js/jcanvas.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            for (var i = 0; i < 20; i++) {
+                var x = 45 + (20 * i);
+                var y = 200;
+                var width = 14;
+                var height = -10 - (7 * i);
+                var outColor = '#6c0';
+                var overColor = '#999999';
+                var outStrokeStyle = '#c33';
+                var outStokeWidth = 2;
+                var overStrokeStyle = '#c66';
+                var overStokeWidth = 2;
+                drawRect(i, outColor, overColor, x, y, width, height, outStrokeStyle, outStokeWidth, overStrokeStyle, overStokeWidth);
+
+            };
+        });
+
+        function drawRect(index, outColor, overColor, x, y, width, height, outStrokeStyle, outStokeWidth, overStrokeStyle, overStokeWidth) {
+            $('#firstcanvas').drawRect({
+                layer: true,
+                fromCenter: false,
+                fillStyle: outColor,
+                strokeStyle: outStrokeStyle,
+                strokeWidth: outStokeWidth,
+                x: x, y: y,
+                width: width, height: height
+            });
+        }
+    </script>
+</head>
+<body>
+    <canvas id="firstcanvas" width='500px' height='300px' style="background-color:#333333;"></canvas>
+</body>
+</html>

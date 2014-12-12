@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<title>jQueryMobile - DateBox Option Tests</title>
+    <link href="Css/jquery.mobile.css" rel="stylesheet" type="text/css" />
+	<link href="Css/jqm-datebox.css" rel="stylesheet" type="text/css" />
+    <script src="Js/jquery-2.0.3.js" type="text/javascript"></script>
+    <script src="Js/jquery.mobile.js" type="text/javascript"></script>
+    <script src="Js/jqm-datebox.mode.calbox.js" type="text/javascript"></script>
+    <script src="Js/jqm-datebox.core.js" type="text/javascript"></script>
+    <script src="Js/jqm-datebox.mode.datebox.js" type="text/javascript"></script>	
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            //var obj = new ActiveXObject("Wscript.shell"); 
+            //obj.SendKeys("{F11}");
+            //var e = document.getElementById("fullscreen");
+            //RunPrefixMethod(e, "RequestFullScreen");
+//            if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+//                RunPrefixMethod(document, "CancelFullScreen");
+//            }
+//            else {
+//                RunPrefixMethod(e, "RequestFullScreen");
+//            }
+//            alert("aa");
+        });
+        function pageLoad() {
+            var obj = new ActiveXObject("Wscript.shell"); 
+            obj.SendKeys("{F11}");
+//            var e = document.getElementById("fullscreen");
+//            RunPrefixMethod(e, "RequestFullScreen");
+//            alert("aa");
+        }
+        function btnTestClick() {
+            var e = document.getElementById("fullscreen");
+            e.onclick = function () {
+                if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+                    RunPrefixMethod(document, "CancelFullScreen");
+                }
+                else {
+                    RunPrefixMethod(e, "RequestFullScreen");
+                }
+            }
+        }        
+
+        var pfx = ["webkit", "moz", "ms", "o", ""];
+        function RunPrefixMethod(obj, method) {
+
+            var p = 0, m, t;
+            while (p < pfx.length && !obj[m]) {
+                m = method;
+                if (pfx[p] == "") {
+                    m = m.substr(0, 1).toLowerCase() + m.substr(1);
+                }
+                m = pfx[p] + m;
+                t = typeof obj[m];
+                if (t != "undefined") {
+                    pfx = [pfx[p]];
+                    return (t == "function" ? obj[m]() : obj[m]);
+                }
+                p++;
+            }
+
+        }
+    </script>
+</head>
+<body id="fullscreen" onload="javascript:pageLoad();">
+<label for="mydate">Some Date</label>
+
+<input type="button" value="btnTest" onclick="btnTestClick();" />
+
+<input type="button" value="btnTest1" onclick="window.document.location.href='PCPCalendar.htm';" />
+
+<input name="mydate" id="mydate" type="date" data-role="datebox" data-options='{"mode": "calbox"}'>
+
+   <input name="mode1" id="mode1" type="text" data-role="datebox" data-options='{"mode":"calbox"}' />
+</body>
+</html>

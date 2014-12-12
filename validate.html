@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Js/jquery-2.0.3.js"></script>
+    <script>
+        $(function () {
+            //var abc = "`";
+            //if (hasIllegalChar(abc)) {
+            //    alert(abc);
+            //} else {
+            //    alert("pass");
+            //}
+        });
+
+        function hasIllegalChar(value) {
+            var pattern = new RegExp("[`~'!@#$%^&*()-+_=:,\"]");
+            if (pattern.test(value)) {
+                return true;
+            }
+            return false;
+        }
+
+        jQuery.valid = {
+            validateDate: function (dateStr) {
+                var rtn = true;
+                var regex = new RegExp("^[12][\\d]{3}-[\\d]{1,2}-[\\d]{1,2}$");
+                if (!regex.test(dateStr)) {
+                    return false;
+                }
+                // date format is YYYY-MM-DD
+                var dateArray = dateStr.split("-");
+                var y = parseInt(dateArray[0], 10);
+                var m = parseInt(dateArray[1], 10);
+                var d = parseInt(dateArray[2], 10);
+
+                if (d > 31 || m > 12 || d == 0) {
+                    return false;
+                }
+                var isLeap = ((y % 4 == 0) && (y % 100 != 0)) || (y % 400 == 0);
+                if ((isLeap && (2 == m) && (d > 29)) || (!isLeap && (2 == m) && (d > 28))) {
+                    rtn = false;
+                }
+                if (((4 == m) || (6 == m) || (9 == m) || (11 == m)) && (31 == d)) {
+                    rtn = false;
+                }
+
+                if (Date.parse(m + "-" + d + "-" + y) < Date.parse("1-1-1753")) {
+                    return false;
+                }
+                return rtn;
+            },
+            validateEmail: function (email) {
+                var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+                return reg.test(email);
+            },
+            validateInt: function (email) {
+                var reg = /^[-+]?\d+$/;
+                return reg.test(email);
+            },
+            validateFloat: function (email) {
+                var reg = /^[-+]?\d+(.\d+)?$/;
+                return reg.test(email);
+            },
+            hasIllegalChar: function (value) {
+                var pattern = new RegExp("[~'!@#$%^&*()-+_=:,\"]");
+                if (pattern.test(value)) {
+                    return true;
+                }
+                return false;
+            },
+            replaceHtmlChar: function (html) {
+                var regObj = { "<": "&lt;", ">": "&gt;" };
+                for (reg in regObj) {
+                    html = html.replace(new RegExp(reg, "g"), regObj[reg]);
+                }
+                return html;
+            }
+        }
+
+        function btnClick() {
+            var str = $("#testText").val();
+            var result = jQuery.valid.validateFloat(str);
+            alert(result);
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="testText" />
+    <input type="button" id="btn" value="Validate" onclick="btnClick();" />
+</body>
+</html>
