@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="Css/jquery-ui.css" rel="stylesheet" />
+    <script src="Js/jquery-2.0.3.js"></script>
+    <script src="Js/jquery-ui.js"></script>
+     <script>
+         $(function () {
+             $("#speed").selectmenu({
+                
+             }).data("speed")._renderItem = function (event, ui) {
+                 alert("aaa");
+                 var li = $("<li>")
+                   .css("background-color", item.value);
+
+                 //if (item.disabled) {
+                 //    li.addClass("ui-state-disabled");
+                 //}
+                 //li.append('<div style="background-color:' + item.value + '">aaaa</div>')
+                 ////this._setText(li, item.label);
+
+                 return li.appendTo(ul);
+             };
+         });
+  </script>
+   <style>
+       select {
+      width: 200px;
+    }
+   </style>
+</head>
+<body>
+    <label for="speed">Select a speed</label>
+    <select name="speed" id="speed">
+      <option value="#ff00ff">Slower</option>
+      <option value="#ff00ff">Slow</option>
+      <!--<option value="#ff00ff" selected="selected">Medium</option>
+      <option value="#ff00ff">Fast</option>
+      <option value="#ff00ff">Faster</option>-->
+    </select>
+</body>
+</html>
